@@ -1,0 +1,57 @@
+<?php
+echo 'This is Neeloo';
+echo PHP_EOL;
+echo 'This is my Framework: Version 1.x';
+//print_r($argv);
+echo PHP_EOL;
+
+$commands=[
+'--help'=>'This is Help command',
+'--v'=>'1.x',
+'--a'=>'For Addition',
+'--s'=>'For Substraction',
+'--m'=>'For Multiplication',
+'--d'=>'For Division',
+'--r'=>'For Remainder',
+];
+
+echo PHP_EOL;
+	foreach($commands as $key => $value){
+		printf("%s\t:\t%s\n",$key,$value);
+}
+	$output='';
+	if(isset($argv[1])){
+	    $command=$argv[1];
+	    echo "\e[H\e[J";
+	switch($command){
+	case '--v':
+		$output='1.x';
+		break;
+	case '--a':
+		$x=readline('Enter number 1: ');
+		$y=readline('Enter number 2: ');
+		$output=$x+$y;
+		break;
+	case '--s':
+		$x=readline('Enter number 1: ');
+		$y=readline('Enter number 2: ');
+		$output=$x-$y;
+		break;
+	case '--m':
+		$x=readline('Enter number 1: ');
+		$y=readline('Enter number 2: ');
+		$output=$x*$y;
+		break;
+	case '--d':
+		$x=readline('Enter number 1: ');
+		$y=readline('Enter number 2: ');
+		$output=$x/$y;
+		break;
+	default:
+		$output='invalid command supplied';
+		break;
+}
+}
+echo $output;
+
+?>
